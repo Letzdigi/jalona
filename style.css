@@ -1,0 +1,28 @@
+/* One sheet for the whole site. Same palette as the password page (packages/suite/recovery). */
+:root { color-scheme: light dark; --ink: #1d1d1b; --paper: #f5f4ef; --card: #fffefa; --line: #d8d4c8; --mute: #5f5d57; --accent: #2f6f4f; }
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #ece9e1; --paper: #1b1b19; --card: #23231f; --line: #3a3a36; --mute: #a8a59c; --accent: #86c9a5; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--accent); }
+header, main, footer { width: 100%; max-width: 46rem; margin: 0 auto; padding: 0 16px; }
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; padding-top: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+header .brand { font-weight: 800; font-size: 1.15rem; letter-spacing: .02em; color: var(--ink); text-decoration: none; margin-right: auto; }
+header nav { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: .95rem; }
+header nav a { color: var(--mute); text-decoration: none; }
+header nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+header nav a.lang { border: 1px solid var(--line); border-radius: 999px; padding: 0 10px; }
+main { padding-top: 28px; padding-bottom: 40px; }
+h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .5rem; }
+h2 { font-size: 1.2rem; margin: 2rem 0 .4rem; }
+p.lede { font-size: 1.1rem; color: var(--mute); margin-top: 0; }
+.cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); margin: 1.5rem 0; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; text-decoration: none; color: var(--ink); }
+.card strong { display: block; margin-bottom: 2px; }
+.card span { color: var(--mute); font-size: .95rem; }
+ul { padding-left: 1.2rem; }
+li { margin: .25rem 0; }
+.updated { color: var(--mute); font-size: .9rem; }
+footer { padding-top: 16px; padding-bottom: 32px; border-top: 1px solid var(--line); color: var(--mute); font-size: .9rem; }

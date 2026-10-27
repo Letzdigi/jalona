@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Jalona — nouveau mot de passe</title>
+<!--
+  Deliberately plain: two static files, no framework and no build step. This page is opened by
+  somebody who is locked out, possibly on a telephone, possibly years after anybody last thought
+  about it. It has to keep working on its own.
+
+  connect-src names the Supabase project because that is the only place this page talks to.
+-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src https://xtsghxyomjgwtvgwjjaz.supabase.co; base-uri 'none'; form-action 'none'">
+<style>
+  :root { color-scheme: light dark; --ink: #1d1d1b; --paper: #f5f4ef; --line: #d8d4c8; --bad: #9d2235; --good: #2f6f4f; }
+  @media (prefers-color-scheme: dark) { :root { --ink: #ece9e1; --paper: #1b1b19; --line: #3a3a36; --bad: #e2879a; --good: #86c9a5; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px;
+         background: var(--paper); color: var(--ink);
+         font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { width: 100%; max-width: 27rem; }
+  h1 { font-size: 1.35rem; margin: 0 0 .25rem; }
+  p.lede { margin: 0 0 1.5rem; opacity: .75; }
+  label { display: block; margin-bottom: 1rem; font-weight: 600; }
+  input { display: block; width: 100%; margin-top: .35rem; padding: .6rem .7rem; font: inherit;
+          color: inherit; background: transparent; border: 1px solid var(--line); border-radius: 6px; }
+  input:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; }
+  button { width: 100%; padding: .7rem; font: inherit; font-weight: 600; cursor: pointer;
+           color: var(--paper); background: var(--ink); border: 0; border-radius: 6px; }
+  button[disabled] { opacity: .55; cursor: default; }
+  .message { margin-top: 1rem; }
+  .message:empty { margin: 0; }
+  .message.error { color: var(--bad); }
+  .message.done { color: var(--good); }
+  .hint { margin-top: 1.5rem; font-size: .875rem; opacity: .7; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Nouveau mot de passe Jalona</h1>
+  <p class="lede">Choisissez un mot de passe d’au moins 10 caractères.</p>
+  <form id="form">
+    <label>Nouveau mot de passe
+      <input id="password" type="password" autocomplete="new-password" required minlength="10">
+    </label>
+    <label>Répéter le mot de passe
+      <input id="repeat" type="password" autocomplete="new-password" required minlength="10">
+    </label>
+    <button id="submit" type="submit">Changer le mot de passe</button>
+  </form>
+  <p id="message" class="message" role="status" aria-live="polite"></p>
+  <p class="hint">Cette page ne sert qu’une fois, depuis le lien reçu par e-mail. Si le lien a
+    expiré, demandez-en un nouveau à l’administrateur du bureau.</p>
+</main>
+<script type="module" src="./recovery.js"></script>
+</body>
+</html>
