@@ -5,3 +5,6 @@ Pages publiées sur https://letzdigi.github.io/jalona/ : présentation, assistan
 
 Ne pas modifier ici. La source est dans le dépôt privé `Letzdigi/planora-suite` (`site/` et
 `packages/suite/recovery/`), publiée par `node scripts/publish-site.mjs`.
+
+Sauf `outlook/` : le complément Outlook « Classer dans… » de Jalona Office, publié depuis le dépôt privé
+`Letzdigi/jalona-documents` (`docs/DEPLOY.md`). La publication du site le garde tel quel.

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Classer dans un dossier</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="taskpane.css">
+  <script type="module" src="taskpane.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Classer dans un dossier</h1>
+    <p class="hint" id="hint">Choisissez le dossier : l’e-mail reçoit sa catégorie et Jalona Office le copie dans le dossier du serveur.</p>
+    <section id="current" hidden>
+      <h2>Classé dans</h2>
+      <ul id="current-list"></ul>
+    </section>
+    <label class="search">Chercher un dossier
+      <input id="query" type="search" autocomplete="off" placeholder="Code ou nom du dossier">
+    </label>
+    <ul id="dossiers" aria-label="Dossiers"></ul>
+    <p class="status" id="status" role="status"></p>
+  </main>
+</body>
+</html>
