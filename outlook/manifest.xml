@@ -11,7 +11,7 @@
            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
            xsi:type="MailApp">
   <Id>916917ce-1179-4d91-92ff-4b9d02e9c455</Id>
-  <Version>0.1.0.0</Version>
+  <Version>0.1.1.0</Version>
   <ProviderName>Jalona</ProviderName>
   <DefaultLocale>fr-FR</DefaultLocale>
   <DisplayName DefaultValue="Jalona Documents"/>
@@ -27,7 +27,7 @@
   </Hosts>
   <Requirements>
     <Sets>
-      <Set Name="Mailbox" MinVersion="1.8"/>
+      <Set Name="Mailbox" MinVersion="1.1"/>
     </Sets>
   </Requirements>
   <FormSettings>
@@ -44,81 +44,84 @@
     <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
   </Rule>
   <DisableEntityHighlighting>false</DisableEntityHighlighting>
+  <!-- Microsoft's layout: a 1.0 block that holds a 1.1 block. SupportsPinning and Mailbox 1.8 are valid only in 1.1. -->
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
-    <Requirements>
-      <bt:Sets DefaultMinVersion="1.8">
-        <bt:Set Name="Mailbox"/>
-      </bt:Sets>
-    </Requirements>
-    <Hosts>
-      <Host xsi:type="MailHost">
-        <DesktopFormFactor>
-          <ExtensionPoint xsi:type="MessageReadCommandSurface">
-            <OfficeTab id="TabDefault">
-              <Group id="jalonaReadGroup">
-                <Label resid="groupLabel"/>
-                <Control xsi:type="Button" id="jalonaReadButton">
-                  <Label resid="readLabel"/>
-                  <Supertip>
-                    <Title resid="readLabel"/>
-                    <Description resid="readTip"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="icon16"/>
-                    <bt:Image size="32" resid="icon32"/>
-                    <bt:Image size="80" resid="icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <SourceLocation resid="taskpaneUrl"/>
-                    <SupportsPinning>true</SupportsPinning>
-                  </Action>
-                </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
-          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
-            <OfficeTab id="TabDefault">
-              <Group id="jalonaComposeGroup">
-                <Label resid="groupLabel"/>
-                <Control xsi:type="Button" id="jalonaComposeButton">
-                  <Label resid="composeLabel"/>
-                  <Supertip>
-                    <Title resid="composeLabel"/>
-                    <Description resid="composeTip"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="icon16"/>
-                    <bt:Image size="32" resid="icon32"/>
-                    <bt:Image size="80" resid="icon80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <SourceLocation resid="taskpaneUrl"/>
-                  </Action>
-                </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
-        </DesktopFormFactor>
-      </Host>
-    </Hosts>
-    <Resources>
-      <bt:Images>
-        <bt:Image id="icon16" DefaultValue="https://letzdigi.github.io/jalona/outlook/icon-16.png"/>
-        <bt:Image id="icon32" DefaultValue="https://letzdigi.github.io/jalona/outlook/icon-32.png"/>
-        <bt:Image id="icon80" DefaultValue="https://letzdigi.github.io/jalona/outlook/icon-80.png"/>
-      </bt:Images>
-      <bt:Urls>
-        <bt:Url id="taskpaneUrl" DefaultValue="https://letzdigi.github.io/jalona/outlook/taskpane.html"/>
-      </bt:Urls>
-      <bt:ShortStrings>
-        <bt:String id="groupLabel" DefaultValue="Jalona"/>
-        <bt:String id="readLabel" DefaultValue="Classer ce mail"/>
-        <bt:String id="composeLabel" DefaultValue="Classer dans…"/>
-      </bt:ShortStrings>
-      <bt:LongStrings>
-        <bt:String id="readTip" DefaultValue="Classe cet e-mail dans un dossier : Jalona Office le copie dans le dossier du serveur."/>
-        <bt:String id="composeTip" DefaultValue="Choisissez le dossier avant d’envoyer : Jalona Office copiera l’e-mail envoyé dans le dossier du serveur."/>
-      </bt:LongStrings>
-    </Resources>
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.8">
+          <bt:Set Name="Mailbox"/>
+        </bt:Sets>
+      </Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="jalonaReadGroup">
+                  <Label resid="groupLabel"/>
+                  <Control xsi:type="Button" id="jalonaReadButton">
+                    <Label resid="readLabel"/>
+                    <Supertip>
+                      <Title resid="readLabel"/>
+                      <Description resid="readTip"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="icon16"/>
+                      <bt:Image size="32" resid="icon32"/>
+                      <bt:Image size="80" resid="icon80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="taskpaneUrl"/>
+                      <SupportsPinning>true</SupportsPinning>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="jalonaComposeGroup">
+                  <Label resid="groupLabel"/>
+                  <Control xsi:type="Button" id="jalonaComposeButton">
+                    <Label resid="composeLabel"/>
+                    <Supertip>
+                      <Title resid="composeLabel"/>
+                      <Description resid="composeTip"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="icon16"/>
+                      <bt:Image size="32" resid="icon32"/>
+                      <bt:Image size="80" resid="icon80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="taskpaneUrl"/>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images>
+          <bt:Image id="icon16" DefaultValue="https://letzdigi.github.io/jalona/outlook/icon-16.png"/>
+          <bt:Image id="icon32" DefaultValue="https://letzdigi.github.io/jalona/outlook/icon-32.png"/>
+          <bt:Image id="icon80" DefaultValue="https://letzdigi.github.io/jalona/outlook/icon-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="taskpaneUrl" DefaultValue="https://letzdigi.github.io/jalona/outlook/taskpane.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="groupLabel" DefaultValue="Jalona"/>
+          <bt:String id="readLabel" DefaultValue="Classer ce mail"/>
+          <bt:String id="composeLabel" DefaultValue="Classer dans…"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="readTip" DefaultValue="Classe cet e-mail dans un dossier : Jalona Office le copie dans le dossier du serveur."/>
+          <bt:String id="composeTip" DefaultValue="Choisissez le dossier avant d’envoyer : Jalona Office copiera l’e-mail envoyé dans le dossier du serveur."/>
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
   </VersionOverrides>
 </OfficeApp>
