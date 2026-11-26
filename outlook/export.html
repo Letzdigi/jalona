@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exporter vers Jalona Office</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="taskpane.css">
+  <script type="module" src="export.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Exporter vers Jalona Office</h1>
+    <p class="hint"><span id="count"></span>. Choisissez le dossier et les pièces jointes : Jalona Office copie les e-mails dans le dossier du serveur, et les pièces cochées en fichiers, en rouge, à enregistrer.</p>
+    <p class="chosen" id="chosen"></p>
+    <label class="search">Chercher un dossier
+      <input id="query" type="search" autocomplete="off" placeholder="Code ou nom du dossier">
+    </label>
+    <ul id="dossiers" aria-label="Dossiers"></ul>
+    <div id="mails"></div>
+    <button type="button" id="export" class="primary" disabled>Exporter</button>
+    <p class="status" id="status" role="status"></p>
+  </main>
+</body>
+</html>

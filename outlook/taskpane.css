@@ -18,3 +18,14 @@ button.dossier.on { background: var(--accent-soft); border-color: var(--accent);
 .why { font-size: 11px; color: var(--accent); }
 #current-list li { display: flex; justify-content: space-between; align-items: center; gap: 6px; background: var(--accent-soft); border-radius: 4px; padding: 4px 8px; }
 #current-list button { font: inherit; font-size: 12px; background: none; border: 0; color: var(--danger); cursor: pointer; text-decoration: underline; }
+/* « Exporter vers Jalona Office » (0.2.0): the dossier, then each mail with its attachments. */
+.chosen { font-weight: 600; margin: 6px 0 0; }
+.mail { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 6px; }
+.mail h2 { color: var(--fg); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.attachment { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 6px; margin: 4px 0; }
+.attachment label { display: flex; align-items: center; gap: 6px; min-width: 0; font-size: 13px; }
+.attachment .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.attachment .size { color: var(--muted); font-size: 11px; flex: none; }
+.attachment select { font: inherit; font-size: 12px; max-width: 140px; }
+#export { width: 100%; margin-top: 14px; font: inherit; font-weight: 600; padding: 8px; border: 0; border-radius: 4px; background: var(--accent); color: #fff; cursor: pointer; }
+#export:disabled { opacity: .5; cursor: default; }

@@ -11,7 +11,7 @@
            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
            xsi:type="MailApp">
   <Id>916917ce-1179-4d91-92ff-4b9d02e9c455</Id>
-  <Version>0.1.1.0</Version>
+  <Version>0.2.0.0</Version>
   <ProviderName>Jalona</ProviderName>
   <DefaultLocale>fr-FR</DefaultLocale>
   <DisplayName DefaultValue="Jalona Documents"/>
@@ -75,6 +75,24 @@
                       <SupportsPinning>true</SupportsPinning>
                     </Action>
                   </Control>
+                  <!-- 0.2.0: one or several mails chosen (Mailbox 1.13 lists them; where it is missing, the open one). -->
+                  <Control xsi:type="Button" id="jalonaExportButton">
+                    <Label resid="exportLabel"/>
+                    <Supertip>
+                      <Title resid="exportLabel"/>
+                      <Description resid="exportTip"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="icon16"/>
+                      <bt:Image size="32" resid="icon32"/>
+                      <bt:Image size="80" resid="icon80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="exportUrl"/>
+                      <SupportsPinning>true</SupportsPinning>
+                      <SupportsMultiSelect>true</SupportsMultiSelect>
+                    </Action>
+                  </Control>
                 </Group>
               </OfficeTab>
             </ExtensionPoint>
@@ -111,15 +129,18 @@
         </bt:Images>
         <bt:Urls>
           <bt:Url id="taskpaneUrl" DefaultValue="https://letzdigi.github.io/jalona/outlook/taskpane.html"/>
+          <bt:Url id="exportUrl" DefaultValue="https://letzdigi.github.io/jalona/outlook/export.html"/>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="groupLabel" DefaultValue="Jalona"/>
           <bt:String id="readLabel" DefaultValue="Classer ce mail"/>
           <bt:String id="composeLabel" DefaultValue="Classer dans…"/>
+          <bt:String id="exportLabel" DefaultValue="Exporter vers Jalona Office"/>
         </bt:ShortStrings>
         <bt:LongStrings>
           <bt:String id="readTip" DefaultValue="Classe cet e-mail dans un dossier : Jalona Office le copie dans le dossier du serveur."/>
           <bt:String id="composeTip" DefaultValue="Choisissez le dossier avant d’envoyer : Jalona Office copiera l’e-mail envoyé dans le dossier du serveur."/>
+          <bt:String id="exportTip" DefaultValue="Un ou plusieurs e-mails et leurs pièces jointes vers un dossier : Jalona Office les copie dans le dossier du serveur, les pièces jointes en rouge, à enregistrer."/>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
