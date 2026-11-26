@@ -11,7 +11,7 @@
 <body>
   <main>
     <h1>Exporter vers Jalona Office</h1>
-    <p class="hint"><span id="count"></span>. Choisissez le dossier et les pièces jointes : Jalona Office copie les e-mails dans le dossier du serveur, et les pièces cochées en fichiers, en rouge, à enregistrer.</p>
+    <p class="hint"><span id="count"></span>. Choisissez le dossier et cochez les pièces jointes à garder. Jalona Office classe les e-mails et s’ouvre sur la fenêtre « Enregistrer », où vous dites ce que sont les pièces jointes et où les ranger.</p>
     <p class="chosen" id="chosen"></p>
     <label class="search">Chercher un dossier
       <input id="query" type="search" autocomplete="off" placeholder="Code ou nom du dossier">
@@ -20,6 +20,7 @@
     <div id="mails"></div>
     <button type="button" id="export" class="primary" disabled>Exporter</button>
     <p class="status" id="status" role="status"></p>
+    <p><a id="open-office" hidden>Jalona Office ne s’est pas ouvert ? Cliquez ici.</a></p>
   </main>
 </body>
 </html>
